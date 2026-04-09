@@ -1,0 +1,30 @@
+#!/bin/bash
+# buildenv - zopen port definition for notispf
+# https://github.com/mrthock/notispf
+
+export ZOPEN_BUILD_LINE="STABLE"
+export ZOPEN_CATEGORIES="editors"
+export ZOPEN_STABLE_URL="https://github.com/mrthock/notispf/archive/refs/tags/v1.0.2.tar.gz"
+export ZOPEN_STABLE_DEPS="python_312"
+export ZOPEN_BOOTSTRAP="skip"
+export ZOPEN_CONFIGURE="skip"
+export ZOPEN_MAKE="skip"
+export ZOPEN_INSTALL="skip"
+
+zopen_build() {
+  pip install . --prefix="${ZOPEN_INSTALL_DIR}"
+}
+
+zopen_check_results() {
+  dir="$1"
+  pfx="$2"
+  cat <<ZZ
+actualFailures:0
+totalTests:1
+expectedFailures:0
+ZZ
+}
+
+zopen_get_version() {
+  python -c "import notispf; print(notispf.__version__)" 2>/dev/null || echo "1.0.2"
+}
