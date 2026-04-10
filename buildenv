@@ -2,9 +2,11 @@
 # buildenv - zopen port definition for notispf
 # https://github.com/mrthock/notispf
 
+NOTISPF_VERSION="1.0.2"
 export ZOPEN_BUILD_LINE="STABLE"
-export ZOPEN_CATEGORIES="editors"
-export ZOPEN_STABLE_URL="https://github.com/mrthock/notispf/archive/refs/tags/v1.0.2.tar.gz"
+export ZOPEN_CATEGORIES="editor"
+export ZOPEN_STABLE_TAG="v${NOTISPF_VERSION}"
+export ZOPEN_STABLE_URL="https://github.com/mrthock/notispf/archive/refs/tags/v${NOTISPF_VERSION}.tar.gz"
 export ZOPEN_STABLE_DEPS="python_312"
 export ZOPEN_BOOTSTRAP="skip"
 export ZOPEN_CONFIGURE="skip"
